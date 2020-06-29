@@ -20,7 +20,6 @@ const contactsList = document.getElementById("contacts-list");
 const searchContactsForm = document.getElementById("contacts-search-form");
 const btnAddContact = document.getElementById("btn-add-contact");
 const addContactForm = document.getElementById("add-contact-form");
-/* const modalCreateContact = document.getElementById("modal-create-contact"); */
 
 // SETTINGS
 const btnClearStore = document.getElementById("btn-clear-store");
@@ -48,7 +47,7 @@ let contacts = [
 let taskList = [
   {
     name: "Сделать домашку",
-    done: false,
+    done: true,
   },
   {
     name: "Сделать уборку",
@@ -184,16 +183,16 @@ const initialApp = () => {
     taskList = JSON.parse(savedTaskList);
   }
 
-  profilePage.style.display = "none";
+  profilePage.style.display = "block";
   settingsPage.style.display = "none";
-  listPage.style.display = "block";
+  listPage.style.display = "none";
   contactsPage.style.display = "none";
 
   profileForm.style.display = "none";
 
-  menuBtns[2].classList.add("active");
+  menuBtns[0].classList.add("active");
 
-  changeNavbarContent("Список");
+  changeNavbarContent("Профиль");
   changeProfileContent(user.name, user.description);
   renderContacts(contacts);
   renderToDoList(taskList);
