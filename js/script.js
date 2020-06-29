@@ -365,10 +365,7 @@ editTaskForm.addEventListener("submit", (e) => {
   const name = editTaskForm["name"].value;
   const index = editTaskForm["name"].dataset.index;
   if (name.length) {
-    taskList[index] = {
-      name,
-      done: taskList[index].done,
-    };
+    taskList[index].name = name;
     localStorage.setItem("taskList", JSON.stringify(taskList));
     renderToDoList(taskList);
     editTaskForm["name"].value = "";
