@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>My app</title>
+  </head>
+  <body>
+    <div class="main-display">
+      <div class="custom-navbar">
+        <h3 id="navbar-content"></h3>
+      </div>
+
+      <div class="page-holder">
+        <div class="page page-profile" id="profile-page">
+          <div class="card card-profile">
+            <div class="avatar">
+              <img
+                class="avatar"
+                src="https://sun9-42.userapi.com/c851336/v851336345/154d5c/OX45ppdF7JU.jpg"
+                class="card-img-top"
+                alt="Аватарка профиля"
+              />
+            </div>
+            <div class="card-body" id="card-profile">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title" id="profile-name"></h5>
+                <button class="btn btn-edit" id="btn-edit-profile">
+                  <svg class="btn-icon">
+                    <use xlink:href="./img/icons.svg#pencil"></use>
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="card-text profile-description"
+                id="profile-description"
+              ></p>
+            </div>
+            <form id="profile-form" class="form-profile">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="description"
+                  autocomplete="off"
+                  class="form-control"
+                />
+              </div>
+              <div class="modal-footer">
+              <button type="submit" class="btn btn-save" id="btn-save-profile">
+                <svg class="btn-icon">
+                  <use xlink:href="./img/icons.svg#ok"></use>
+                </svg>
+              </button>
+            </div>
+            </form>
+          </div>
+        </div>
+        <div class="page" id="contacts-page">
+          <form
+            id="contacts-search-form"
+            class="form-inline search-form-control"
+          >
+            <div class="input-group">
+              <div class="custom-file">
+                <input
+                  type="text"
+                  name="search-query-contacts"
+                  class="form-control search-input"
+                  placeholder="Найти..."
+                />
+              </div>
+            </div>
+          </form>
+          <div class="contacts">
+            <ul class="list-group list-group-flush" id="contacts-list"></ul>
+          </div>
+          <!-- Кнопка для добавления контактов -->
+          <button
+            class="btn-add"
+            id="btn-open-contact-modal"
+            data-toggle="modal"
+            data-target="#modal-create-contact"
+          >
+            <svg class="btn-add-contact-icon">
+              <use xlink:href="./img/icons.svg#add-contact"></use>
+            </svg>
+          </button>
+
+          <div
+            class="modal fade"
+            id="modal-create-contact"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modal-contact-header"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-contact-header">
+                    Создание контакта
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form id="add-contact-form" class="add-contact-form">
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="Имя"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="mobile"
+                        placeholder="Номер телефона"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="submit"
+                      class="btn btn-save"
+                      id="btn-save-contact"
+                    >
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#ok"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#cancel"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page" id="list-page">
+          <ul class="list-group list-group-flush to-do-list" id="to-do-list">
+            <li class="list-group-item d-flex justify-content-between">
+              <div class="to-do-list-item-text">Изучить БЭМ</div>
+              <div class="list-controls">
+                <button class="btn btn-task btn-edit-task">
+                  <svg class="btn-icon">
+                    <use xlink:href="./img/icons.svg#pencil"></use>
+                  </svg>
+                </button>
+                <button class="btn btn-task btn-delete-task">
+                  <svg class="btn-icon">
+                    <use xlink:href="./img/icons.svg#trash"></use>
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </ul>
+          <!-- Кнопка добавления задачи -->
+          <button
+            class="btn-add"
+            id="btn-open-task-modal"
+            data-toggle="modal"
+            data-target="#modal-create-task"
+          >
+            <svg class="btn-add-icon">
+              <use xlink:href="./img/icons.svg#plus"></use>
+            </svg>
+          </button>
+
+          <!-- Форма удаления задачи -->
+          <div
+            class="modal fade"
+            id="modal-delete-task"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modal-delete-task-header"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-delete-task-header">
+                    Удаление задачи
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form id="delete-task-form" class="delete-task-form">
+                  <div class="modal-body">
+                    Вы уверены, что хотите удалить задачу "<span
+                      id="task-name"
+                    ></span
+                    >"?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#ok"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#cancel"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Форма добавления задачи -->
+          <div
+            class="modal fade"
+            id="modal-create-task"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modal-create-task-header"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-create-task-header">
+                    Создание задачи
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form id="create-task-form">
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="Наименование задачи"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#ok"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#cancel"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Форма редактирования задачи -->
+          <div
+            class="modal fade"
+            id="modal-edit-task"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modal-edit-task-header"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-edit-task-header">
+                    Редактирование задачи
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form id="edit-task-form">
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="name"
+                        placeholder="Наименование задачи"
+                        autocomplete="off"
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#ok"></use>
+                      </svg>
+                    </button>
+                    <button type="button" class="btn" data-dismiss="modal">
+                      <svg class="btn-icon">
+                        <use xlink:href="./img/icons.svg#cancel"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page page-settigns" id="settings-page">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>
+                  Очистить localstorage
+                </p>
+                <button class="btn" id="btn-clear-store">
+                  <svg class="btn-icon">
+                    <use xlink:href="./img/icons.svg#trash"></use>
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between align-items-center">
+                <p>
+                  Тема
+                </p>
+                <div class="switch" id="switch-theme" data-checked="0">
+                  <div class="switch-circle"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bottom-menu d-flex justify-content-center">
+        <!-- Профиль, Контакты, Список дел, Настройки -->
+        <button class="btn-bottom" data-path="profile" data-pagename="Профиль">
+          <svg class="btn-bottom-icon">
+            <use xlink:href="./img/icons.svg#person"></use>
+          </svg>
+          <!-- <small>Профиль</small> -->
+        </button>
+        <button
+          class="btn-bottom"
+          data-path="contacts"
+          data-pagename="Контакты"
+        >
+          <svg class="btn-bottom-icon">
+            <use xlink:href="./img/icons.svg#contacts"></use>
+          </svg>
+          <!-- <small>Контакты</small> -->
+        </button>
+        <button class="btn-bottom" data-path="list" data-pagename="Список">
+          <svg class="btn-bottom-icon">
+            <use xlink:href="./img/icons.svg#list"></use>
+          </svg>
+          <!-- <small>Список</small> -->
+        </button>
+        <button
+          class="btn-bottom"
+          data-path="settings"
+          data-pagename="Настройки"
+        >
+          <svg class="btn-bottom-icon">
+            <use xlink:href="./img/icons.svg#settings"></use>
+          </svg>
+          <!-- <small>Настройки</small> -->
+        </button>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./js/script.js"></script>
+</html>
