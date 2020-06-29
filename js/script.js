@@ -367,7 +367,7 @@ editTaskForm.addEventListener("submit", (e) => {
   if (name.length) {
     taskList[index] = {
       name,
-      done: false,
+      done: taskList[index].done,
     };
     localStorage.setItem("taskList", JSON.stringify(taskList));
     renderToDoList(taskList);
